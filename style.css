@@ -1,0 +1,21 @@
+body {
+  background-color: green;
+}
+
+.container {
+  text-align: center;
+}
+
+.word-container{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.input-letter {
+  text-align: center;
+  width: 25px;
+  height: 25px;
+  border: 1px solid black;
+}
