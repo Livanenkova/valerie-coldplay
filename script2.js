@@ -32,7 +32,6 @@ const startOverButton = createElement('button',`start-over`);
 
 function deleteWhiteSpace() {
   trackOnlyLetters = trackLetter[0].split(' ').join('');
-  console.log(trackOnlyLetters)
 }
 
 const container = document.querySelector('.container');
@@ -44,16 +43,12 @@ function showArray() {
   track.push(array[numberTrack].split(''));
   trackLetter.push(array[numberTrack]);
   deleteWhiteSpace()
-  console.log(track)
-  console.log(trackLetter)
   for(let i = 0; i < trackLetter[0].length; i++) {
     const letter = createElement('div',`input-letter`);
     letter.classList.add(`input-letter${i}`)
     wordContainer.appendChild(letter);
-    console.log(track[0][i])
     if(track[0][i] === '/') {
       letter.innerText = '/';
-      console.log(track[0][i]);
     } else if (track[0][i] === '’'){
       letter.innerText = '’';
     }
@@ -76,7 +71,6 @@ function showArray() {
 
   sendAnswerButton.addEventListener('click',function(){
     userAnswer.push(userInput.value.toLowerCase())
-    console.log(userAnswer)
     result.innerHTML = ''
     if(userAnswer[0] === '') {
       result.innerHTML ='вы ничего не ввели - введите ответ';
@@ -84,8 +78,6 @@ function showArray() {
     }  else if(trackLetter[0] === userAnswer[0]) {
       result.innerHTML =`Правильно! Ты молодец - песня ${trackLetter[0]}`
       userStatistics.wins = userStatistics.wins +1;
-      console.log('все круто ты победил')
-      console.log(userStatistics.wins)
     } else {
       userInput.value = ''
       result.innerHTML =`Ты не угадал - правильный ответ ${trackLetter[0]} - попробуй еще раз`
