@@ -52,6 +52,12 @@ function showArray() {
     } else if (track[0][i] === '’'){
       letter.innerText = '’';
     }
+    else if (track[0][i] === '.'){
+      letter.innerText = '.';
+    }
+    else if (track[0][i] === '!'){
+      letter.innerText = '!';
+    }
     else if (track[0][i] === ' '){
       letter.innerText = '_';
     }
