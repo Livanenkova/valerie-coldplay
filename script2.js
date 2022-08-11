@@ -75,10 +75,8 @@ function showArray() {
   log.innerHTML =`количество символов ${track[0].length} количество букв ${trackOnlyLetters.length}`;
 
   sendAnswerButton.addEventListener('click',function(){
-    userAnswer.push(userInput.value)
+    userAnswer.push(userInput.value.toLowerCase())
     console.log(userAnswer)
-    
-
     result.innerHTML = ''
     if(userAnswer[0] === '') {
       result.innerHTML ='вы ничего не ввели - введите ответ';
