@@ -1,4 +1,7 @@
-import {array} from './coldpay_songs.js'
+// import {array} from './coldpay_songs.js'
+import {songs} from './coldplaySongs2.js'
+console.log(songs)
+console.log(songs.length)
 
 const track = []
 const trackLetter = []
@@ -22,12 +25,13 @@ function createElement(tag, className) {
 
 let wordContainer;
 
-const numberTrack =  createRandomNumber(array.length);
+const numberTrack =  createRandomNumber(songs.length);
 let trackOnlyLetters;
 
 const userInput = createElement('input',`user-letter`);
 const sendAnswerButton = createElement('button',`send-answer`);
 const startOverButton = createElement('button',`start-over`);
+const showHint = createElement('button',`show-hint`);
 
 
 function deleteWhiteSpace() {
@@ -40,8 +44,10 @@ const container = document.querySelector('.container');
 function showArray() {
   const wordContainer = createElement('div',`word-container`);
   container.appendChild(wordContainer);
-  track.push(array[numberTrack].split(''));
-  trackLetter.push(array[numberTrack]);
+  track.push(songs[numberTrack].song.split(''));
+  console.log(songs[numberTrack].song)
+
+  trackLetter.push(songs[numberTrack].song.toLowerCase());
   deleteWhiteSpace()
   for(let i = 0; i < trackLetter[0].length; i++) {
     const letter = createElement('div',`input-letter`);
@@ -58,15 +64,23 @@ function showArray() {
     else if (track[0][i] === '!'){
       letter.innerText = '!';
     }
+    else if (track[0][i] === '&'){
+      letter.innerText = '&';
+    }
     else if (track[0][i] === ' '){
       letter.innerText = '_';
     }
   }
   sendAnswerButton.innerHTML = 'check the answer',
   startOverButton.innerHTML = 'reload game',
+  showHint.innerHTML = 'show hint',
   container.appendChild(userInput);
+  container.appendChild(showHint)
   container.appendChild(sendAnswerButton);
   container.appendChild(startOverButton);
+
+  const hint = createElement('div',`hint`);
+  container.appendChild(hint);
 
   const result = createElement('div',`result`);
   container.appendChild(result);
@@ -74,6 +88,11 @@ function showArray() {
   const log = createElement('div',`log`);
   container.appendChild(log);
   log.innerHTML =`количество символов ${track[0].length} количество букв ${trackOnlyLetters.length}`;
+
+  showHint.addEventListener('click',function(){
+    console.log(songs[numberTrack].album)
+    hint.innerHTML =`альбом ${songs[numberTrack].album}`;
+  });
 
   sendAnswerButton.addEventListener('click',function(){
     userAnswer.push(userInput.value.toLowerCase())
