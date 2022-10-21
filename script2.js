@@ -32,6 +32,7 @@ const userInput = createElement('input',`user-letter`);
 const sendAnswerButton = createElement('button',`send-answer`);
 const startOverButton = createElement('button',`start-over`);
 const showHint = createElement('button',`show-hint`);
+const showMeme = createElement('button',`show-meme`);
 
 
 function deleteWhiteSpace() {
@@ -41,7 +42,7 @@ function deleteWhiteSpace() {
 const container = document.querySelector('.container');
 
 
-function showArray() {
+function start() {
   const wordContainer = createElement('div',`word-container`);
   container.appendChild(wordContainer);
   track.push(songs[numberTrack].song.split(''));
@@ -112,7 +113,24 @@ function showArray() {
   startOverButton.addEventListener('click',function(){
     location.reload()
   });
+
+  container.appendChild(showMeme);
+  
+  showMeme.innerHTML =`показать мем`;
+  const imgWrap = createElement('div',`img-wrap`);
+  container.appendChild(imgWrap);
+  const imgEl = createElement('img',`img-el`);
+  imgWrap.appendChild(imgEl);
+
+
+  showMeme.addEventListener('click',function(){
+    const memeLength = 22;
+    const numberMeme = createRandomNumber(memeLength)
+    imgEl.src=`./img/${numberMeme}.jpg`;
+  });
+
+  
 }
 const userAnswer = []
 
-showArray()
+start()
