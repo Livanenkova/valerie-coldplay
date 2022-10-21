@@ -30,7 +30,7 @@ const userInput = createElement('input',`user-letter`);
 const sendAnswerButton = createElement('button',`send-answer`);
 const startOverButton = createElement('button',`start-over`);
 const showHint = createElement('button',`show-hint`);
-const showMeme = createElement('button',`show-meme`);
+
 
 
 function deleteWhiteSpace() {
@@ -100,6 +100,22 @@ function start() {
     }  else if(trackLetter[0] === userAnswer[0]) {
       result.innerHTML =`Правильно! Ты молодец - песня ${trackLetter[0]}`
       userStatistics.wins = userStatistics.wins +1;
+
+      const showMeme = createElement('button',`show-meme`);
+      container.appendChild(showMeme);
+      showMeme.innerHTML =`показать мем`;
+      const imgWrap = createElement('div',`img-wrap`);
+      container.appendChild(imgWrap);
+      const imgEl = createElement('img',`img-el`);
+      imgWrap.appendChild(imgEl);
+    
+    
+      showMeme.addEventListener('click',function(){
+        const memeLength = 22;
+        const numberMeme = createRandomNumber(memeLength)
+        imgEl.src=`./img/${numberMeme}.jpg`;
+      });
+    
     } else {
       userInput.value = ''
       result.innerHTML =`Ты не угадал - правильный ответ ${trackLetter[0]} - попробуй еще раз`
@@ -110,21 +126,9 @@ function start() {
     location.reload()
   });
 
-  container.appendChild(showMeme);
   
-  showMeme.innerHTML =`показать мем`;
-  const imgWrap = createElement('div',`img-wrap`);
-  container.appendChild(imgWrap);
-  const imgEl = createElement('img',`img-el`);
-  imgWrap.appendChild(imgEl);
-
-
-  showMeme.addEventListener('click',function(){
-    const memeLength = 22;
-    const numberMeme = createRandomNumber(memeLength)
-    imgEl.src=`./img/${numberMeme}.jpg`;
-  });
-
+  
+  
   
 }
 const userAnswer = []
