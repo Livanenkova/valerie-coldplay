@@ -1,7 +1,5 @@
 // import {array} from './coldpay_songs.js'
 import {songs} from './coldplaySongs2.js'
-console.log(songs)
-console.log(songs.length)
 
 const track = []
 const trackLetter = []
@@ -46,7 +44,6 @@ function start() {
   const wordContainer = createElement('div',`word-container`);
   container.appendChild(wordContainer);
   track.push(songs[numberTrack].song.split(''));
-  console.log(songs[numberTrack].song)
 
   trackLetter.push(songs[numberTrack].song.toLowerCase());
   deleteWhiteSpace()
@@ -91,7 +88,6 @@ function start() {
   log.innerHTML =`количество символов ${track[0].length} количество букв ${trackOnlyLetters.length}`;
 
   showHint.addEventListener('click',function(){
-    console.log(songs[numberTrack].album)
     hint.innerHTML =`альбом ${songs[numberTrack].album}`;
   });
 
