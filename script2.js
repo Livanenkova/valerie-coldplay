@@ -81,7 +81,7 @@ function start() {
 
   const log = createElement("div", `log`);
   container.appendChild(log);
-  log.innerHTML = `количество символов ${track[0].length} количество букв ${trackOnlyLetters.length}`;
+  log.innerHTML = `количество символов: ${track[0].length} количество букв: ${trackOnlyLetters.length}`;
 
   showHint.addEventListener("click", function () {
     hint.innerHTML = `альбом ${songs[numberTrack].album}`;
