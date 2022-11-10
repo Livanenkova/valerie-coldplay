@@ -134,9 +134,8 @@ function start() {
 
   startTimer.addEventListener("click", function () {
     console.log("Запустить таймер");
-
+    container.appendChild(timerText);
     container.appendChild(timerWrap);
-    timerWrap.appendChild(timerText);
     timerWrap.appendChild(timerItems);
     timerItems.appendChild(timerDays);
     timerItems.appendChild(timerHours);
