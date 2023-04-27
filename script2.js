@@ -1,9 +1,7 @@
 // import {array} from './coldpay_songs.js'
 import { songs } from "./coldplaySongs2.js";
-
 const track = [];
 const trackLetter = [];
-
 const userStatistics = {
   wins: 0,
   lose: 0,
